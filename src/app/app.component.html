@@ -16,7 +16,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let pais of paises">
-          <td><a href="#" (click)="mostrarInformacionPais(pais, templatePais)">{{pais.name}}</a></td>
+          <td><a href="#" (click)="mostrarInformacionPais(pais, content)">{{pais.name}}</a></td>
           <td>{{pais.languages[0].name}}</td>
           <td>{{pais.currencies[0].name}}</td>
           <td><img src="{{pais.flag}}" width="30px" height="30px"></td>
@@ -24,5 +24,25 @@
       </tbody>
     </table>
   </div>
+
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Pais</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <img src="{{imagenPais}}" width="100px" height="40px">
+          <label>Su capital es {{capital}}</label>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+    </div>
+  </ng-template>
+  
 
 <router-outlet></router-outlet>
